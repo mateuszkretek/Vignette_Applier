@@ -1,0 +1,15 @@
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\Vignette_Applier_App.csproj.AssemblyReference.cache
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\MainWindow.g.cs
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\App.g.cs
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\Vignette_Applier_App_MarkupCompile.cache
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\Vignette_Applier_App_MarkupCompile.lref
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\bin\x64\Debug\Vignette_Applier_App.exe.config
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\bin\x64\Debug\Vignette_Applier_App.exe
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\bin\x64\Debug\Vignette_Applier_App.pdb
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\MainWindow.baml
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\Vignette_Applier_App.g.resources
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\Vignette_Applier_App.Properties.Resources.resources
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\Vignette_Applier_App.csproj.GenerateResource.cache
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\Vignette_Applier_App.csproj.CoreCompileInputs.cache
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\Vignette_Applier_App.exe
+C:\Users\mateu\Desktop\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\Vignette_Applier_App.pdb

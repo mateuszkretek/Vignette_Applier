@@ -1,0 +1,24 @@
+﻿<Window x:Class="Vignette_Applier_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vignette_Applier_App"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="0,0,2,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="text1" Content="wynik"
+HorizontalAlignment="Center" VerticalAlignment="Center" Margin="174,92,181,88" Width="40" Height="30"/>
+        <Button x:Name="ASMButton" Content="do masm func" Grid.Row="1" Click="ASM_Button_Click"/>
+        <Button x:Name="PictureButton" Content="Picture" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="396" Height="209" Click="Picture_Button_Click"/>
+        <Image x:Name="Image_Output" HorizontalAlignment="Left" Height="210" VerticalAlignment="Top" Width="395" Grid.Column="1"/>
+    </Grid>
+</Window>
