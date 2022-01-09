@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace Vignette_Applier_App {
 	class Apply_Vignette {
-		//[DllImport("C:/Users/mateu/Desktop/Vignette_Applier_App/x64/Debug/ASMdll.dll")]
-		[DllImport("../../../../x64/Debug/CPPdll.dll")]
-		private static extern double calculateDistance(double first_point_x, double first_point_y, double second_point_x, double second_point_y);
-		
-		/*//[DllImport("C:/Users/mateu/Desktop/Vignette_Applier_App/x64/Debug/ASMdll.dll")]
-		[DllImport("../../../../x64/Debug/CPPdll.dll")]
-		private static extern double getMaxDistFromCenter(double size_x, double size_y, double center_x, double center_y);*/
+		[DllImport("../../../../x64/Debug/ASMdll.dll")]
+		//[DllImport("../../../../x64/Debug/CPPdll.dll")]
+		public static extern double calculateDistance(double first_point_x, double first_point_y, double second_point_x, double second_point_y);
 
-		//[DllImport("C:/Users/mateu/Desktop/Vignette_Applier_App/x64/Debug/ASMdll.dll")]
-		[DllImport("../../../../x64/Debug/CPPdll.dll")]
-		private static extern double calculateMaskValue(double maskCenterX, double maskCenterY, double col, double row, double stdMultiplier, double maskPower);
+		//[DllImport("../../../../x64/Debug/ASMdll.dll")]
+		//[DllImport("../../../../x64/Debug/CPPdll.dll")]
+		//private static extern double getMaxDistFromCenter(double size_x, double size_y, double center_x, double center_y);
+
+		[DllImport("../../../../x64/Debug/ASMdll.dll")]
+		//[DllImport("../../../../x64/Debug/CPPdll.dll")]
+		public static extern double calculateMaskValue(double maskCenterX, double maskCenterY, double col, double row, double stdMultiplier, int maskPower);
 
 		private class TaskParams
         {
@@ -28,7 +28,7 @@ namespace Vignette_Applier_App {
 			public int col;
 			public int row;
 			public double stdMultiplier;
-			public double maskPower;
+			public int maskPower;
 			public double[] mask;
 			public int imageHeight;
 		}
@@ -40,18 +40,18 @@ namespace Vignette_Applier_App {
 			corners[1] = new Tuple<double, double>(sizeX, 0);
 			corners[2] = new Tuple<double, double>(0, sizeY);
 			corners[3] = new Tuple<double, double>(sizeX, sizeY);
-			double maxDis = 0;
+			double maxDist = 0;
 			for (int i = 0; i < 4; ++i)
 			{
-				double dis = calculateDistance(centerX, centerY, corners[i].Item1, corners[i].Item2);
-				if (maxDis < dis)
-					maxDis = dis;
+				double dist = calculateDistance(centerX, centerY, corners[i].Item1, corners[i].Item2);
+				if (maxDist < dist)
+					maxDist = dist;
 			}
-			return maxDis;
+			return maxDist;
 		}
 
 
-		public static Tuple<Bitmap, double> ApplyVignette(Bitmap inputImage, double maskCenterX, double maskCenterY, double maskPower, int threads)
+		public static Tuple<Bitmap, double> ApplyVignette(Bitmap inputImage, double maskCenterX, double maskCenterY, int maskPower, int threads)
 		{
 			var countdownEvent = new CountdownEvent(inputImage.Height * inputImage.Width);
 			double maxDistFromCenter = Apply_Vignette.getMaxDistFromCenter(inputImage.Width, inputImage.Height, maskCenterX, maskCenterY);

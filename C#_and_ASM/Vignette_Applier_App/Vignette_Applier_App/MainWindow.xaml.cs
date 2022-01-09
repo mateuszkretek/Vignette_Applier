@@ -29,6 +29,8 @@ namespace Vignette_Applier_App
 
 		private void ASM_Button_Click(object sender, RoutedEventArgs e)
 		{
+			text1.Content = Apply_Vignette.calculateDistance(0.0, 0.0, 3.0, 4.0);
+			text1.Content = Apply_Vignette.calculateMaskValue(0.0, 0.0, 0.0, 1.0, 3.14, 1);
 		}
 
 		private void Picture_Button_Click(object sender, RoutedEventArgs e)

@@ -38,7 +38,7 @@ void generateGradient(cv::Mat& mask) {
 	const double mask_center_y = mask.rows / 2;
 	const double mask_size_x = mask.cols;			//wyznaczenie rozmiaru winiety
 	const double mask_size_y = mask.rows;
-	const double power = 2.0;						//moc winiety
+	const double power = 4;						//moc winiety
 	const double maxDistFromCenter = getMaxDistFromCenter(mask_size_x, mask_size_y, mask_center_x, mask_center_y);	//odległość najdalszego punktu od środka winiety
 	const double std_multiplier = M_PI_2 / maxDistFromCenter;
 	double temp;

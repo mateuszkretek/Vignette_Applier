@@ -1,3 +1,4 @@
 LIBRARY ASMdll
 EXPORTS 
-MyProc1
+calculateDistance
+calculateMaskValue
