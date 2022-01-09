@@ -29,17 +29,16 @@ namespace Vignette_Applier_App
 
 		private void ASM_Button_Click(object sender, RoutedEventArgs e)
 		{
-			text1.Content = TestClass.MyProc1(5, 7);
 		}
 
 		private void Picture_Button_Click(object sender, RoutedEventArgs e)
 		{
-			Bitmap inputImage = new Bitmap("C:/Users/mateu/Desktop/Vignette_Applier_App/turtle.jpg");
-			Bitmap outputImage = Apply_Vignette.ApplyVignette(inputImage, inputImage.Width / 2, inputImage.Height / 2, 4);
+			Bitmap inputImage = new Bitmap("E:/Projects/Projects/Vignette_Applier/C#_and_ASM/Vignette_Applier_App/images/turtle.jpg");
+			Tuple<Bitmap,double> result = Apply_Vignette.ApplyVignette(inputImage, inputImage.Width / 2, inputImage.Height / 2, 4, 6);
 			BitmapImage bitmapimage = new BitmapImage();
 			using (MemoryStream memory = new MemoryStream())
 			{
-				outputImage.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
+				result.Item1.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
 				memory.Position = 0;
 
 				bitmapimage.BeginInit();
@@ -48,6 +47,7 @@ namespace Vignette_Applier_App
 				bitmapimage.EndInit();
 			}
 			Image_Output.Source = bitmapimage;
+			text1.Content = result.Item2;
 		}
 	}
 }

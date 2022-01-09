@@ -1,0 +1,15 @@
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\bin\Release\Vignette_Applier_App.exe.config
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\bin\Release\Vignette_Applier_App.exe
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\bin\Release\Vignette_Applier_App.pdb
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\Release\Vignette_Applier_App.csproj.AssemblyReference.cache
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\Release\MainWindow.g.cs
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\Release\App.g.cs
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\Release\Vignette_Applier_App_MarkupCompile.cache
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\Release\Vignette_Applier_App_MarkupCompile.lref
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\Release\MainWindow.baml
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\Release\Vignette_Applier_App.g.resources
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\Release\Vignette_Applier_App.Properties.Resources.resources
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\Release\Vignette_Applier_App.csproj.GenerateResource.cache
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\Release\Vignette_Applier_App.csproj.CoreCompileInputs.cache
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\Release\Vignette_Applier_App.exe
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\Release\Vignette_Applier_App.pdb

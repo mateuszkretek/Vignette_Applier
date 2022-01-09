@@ -1,5 +1,4 @@
 LIBRARY CPPdll
 EXPORTS
-dist
-getMaxDistFromCenter
+calculateDistance
 calculateMaskValue
