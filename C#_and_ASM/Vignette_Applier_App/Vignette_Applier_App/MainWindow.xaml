@@ -5,20 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vignette_Applier_App"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="0,0,2,0">
+        Title="MainWindow" Height="550" Width="1288
+        ">
+    <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="360*"/>
+            <RowDefinition Height="159*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="text1" Content="wynik"
-HorizontalAlignment="Center" VerticalAlignment="Center" Margin="174,92,181,88" Width="40" Height="30"/>
-        <Button x:Name="ASMButton" Content="do masm func" Grid.Row="1" Click="ASM_Button_Click"/>
-        <Button x:Name="PictureButton" Content="Picture" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="396" Height="209" Click="Picture_Button_Click"/>
-        <Image x:Name="Image_Output" HorizontalAlignment="Left" Height="210" VerticalAlignment="Top" Width="395" Grid.Column="1"/>
+HorizontalAlignment="Center" VerticalAlignment="Center" Margin="188,61,150,66" Width="302" Height="32" RenderTransformOrigin="0.881,4.762" Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name="PictureButton" Content="Picture" HorizontalAlignment="Left" VerticalAlignment="Top" Width="226" Height="53" Click="Picture_Button_Click" Margin="376,23,0,0" Grid.Row="1"/>
+        <Image x:Name="ImageInput" Height="360" Width="640" RenderTransformOrigin="0.455,0.483" Grid.Column="0" Grid.Row="0"/>
+        <Image x:Name="ImageOutput" Height="360" Width="640" RenderTransformOrigin="0.455,0.483" Grid.Column="1" Grid.Row="0"/>
+        <Slider x:Name="ThreadsSlider" Margin="10,61,332,78" Width="298" Maximum="128" Minimum="1" SmallChange="1" Value="64" Cursor="Arrow" RenderTransformOrigin="0.503,0.5" ValueChanged="ThreadsSlider_ValueChanged" Grid.Row="1"/>
+        <Slider x:Name="VignettePowerSlider" Margin="10,23,332,115" Width="298" RenderTransformOrigin="0.577,1.354" Maximum="16" SmallChange="1" Value="8" Grid.Row="1" ValueChanged="VignettePowerSlider_ValueChanged"/>
     </Grid>
 </Window>

@@ -22,34 +22,52 @@ namespace Vignette_Applier_App
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		Bitmap inputImage;
+		int threads;
+		int power;
+
 		public MainWindow()
 		{
 			InitializeComponent();
+			inputImage = new Bitmap("E:/Projects/Projects/Vignette_Applier/C#_and_ASM/Vignette_Applier_App/images/turtle.jpg");
+			BitmapImage inputBitmapImage = new BitmapImage();
+			using (MemoryStream memory = new MemoryStream())
+			{
+				inputImage.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
+				memory.Position = 0;
+				inputBitmapImage.BeginInit();
+				inputBitmapImage.StreamSource = memory;
+				inputBitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+				inputBitmapImage.EndInit();
+			}
+			ImageInput.Source = null;
+			ImageInput.Source = inputBitmapImage;
 		}
-
-		private void ASM_Button_Click(object sender, RoutedEventArgs e)
-		{
-			text1.Content = Apply_Vignette.calculateDistance(0.0, 0.0, 3.0, 4.0);
-			text1.Content = Apply_Vignette.calculateMaskValue(0.0, 0.0, 0.0, 1.0, 3.14, 1);
-		}
-
 		private void Picture_Button_Click(object sender, RoutedEventArgs e)
 		{
-			Bitmap inputImage = new Bitmap("E:/Projects/Projects/Vignette_Applier/C#_and_ASM/Vignette_Applier_App/images/turtle.jpg");
-			Tuple<Bitmap,double> result = Apply_Vignette.ApplyVignette(inputImage, inputImage.Width / 2, inputImage.Height / 2, 4, 6);
-			BitmapImage bitmapimage = new BitmapImage();
+			Tuple<Bitmap,double> result = VignetteApplier.ApplyVignette(inputImage, inputImage.Width / 2, inputImage.Height / 2, power, threads);
+			BitmapImage outputBitmapImage = new BitmapImage();
 			using (MemoryStream memory = new MemoryStream())
 			{
 				result.Item1.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
 				memory.Position = 0;
-
-				bitmapimage.BeginInit();
-				bitmapimage.StreamSource = memory;
-				bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
-				bitmapimage.EndInit();
+				outputBitmapImage.BeginInit();
+				outputBitmapImage.StreamSource = memory;
+				outputBitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+				outputBitmapImage.EndInit();
 			}
-			Image_Output.Source = bitmapimage;
+			ImageOutput.Source = outputBitmapImage;
 			text1.Content = result.Item2;
+		}
+
+		private void ThreadsSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+		{
+			threads = (int)ThreadsSlider.Value;
+		}
+
+		private void VignettePowerSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+		{
+			power = (int)VignettePowerSlider.Value;
 		}
 	}
 }
