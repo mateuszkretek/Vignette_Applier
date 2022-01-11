@@ -1,4 +1,3 @@
 LIBRARY ASMdll
 EXPORTS 
-calculateDistance
-calculateMaskValue
+calculateMaskValueAsm

@@ -11,7 +11,7 @@ VSQRTPD xmm0, xmm0
 ret
 calculateDistance endp
 
-calculateMaskValue proc
+calculateMaskValueAsm proc
 CALL calculateDistance
 MULSD xmm0, QWORD PTR[rsp+40]
 MOVSD QWORD PTR[rsp+40], xmm0
@@ -26,5 +26,5 @@ power:
 MULSD xmm0, xmm1
 loop power
 ret
-calculateMaskValue endp
+calculateMaskValueAsm endp
 end

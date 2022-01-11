@@ -23,6 +23,9 @@ namespace Vignette_Applier_App
 	public partial class MainWindow : Window
 	{
 		Bitmap inputImage;
+		int dllParam = 0;
+		double horizontalCenterMultiplier = 0.5;
+		double verticalCenterMultiplier = 0.5;
 		int threads;
 		int power;
 
@@ -43,9 +46,9 @@ namespace Vignette_Applier_App
 			ImageInput.Source = null;
 			ImageInput.Source = inputBitmapImage;
 		}
-		private void Picture_Button_Click(object sender, RoutedEventArgs e)
+		private void Run_Button_Click(object sender, RoutedEventArgs e)
 		{
-			Tuple<Bitmap,double> result = VignetteApplier.ApplyVignette(inputImage, inputImage.Width / 2, inputImage.Height / 2, power, threads);
+			Tuple<Bitmap,double> result = VignetteApplier.ApplyVignette(inputImage, inputImage.Width * horizontalCenterMultiplier, inputImage.Height * verticalCenterMultiplier, power, threads, dllParam);
 			BitmapImage outputBitmapImage = new BitmapImage();
 			using (MemoryStream memory = new MemoryStream())
 			{
@@ -57,17 +60,41 @@ namespace Vignette_Applier_App
 				outputBitmapImage.EndInit();
 			}
 			ImageOutput.Source = outputBitmapImage;
-			text1.Content = result.Item2;
+			TimeLabel.Content = "Time: " + result.Item2;
 		}
 
 		private void ThreadsSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
 		{
 			threads = (int)ThreadsSlider.Value;
+			ThreadsLabel.Content = "Threads: " + threads;
 		}
 
 		private void VignettePowerSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
 		{
 			power = (int)VignettePowerSlider.Value;
+			VignettePowerLabel.Content = "Power: " + power;
 		}
-	}
+
+        private void AsmRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+			dllParam = 0;
+		}
+
+        private void CppRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+			dllParam = 1;
+        }
+
+        private void HorizontalCenterSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+			horizontalCenterMultiplier = Math.Round((HorizontalCenterSlider.Value / 100),2);
+			HorizontalCenterLabel.Content = "Horizontal: " + horizontalCenterMultiplier;
+        }
+
+        private void VerticalCenterSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+			verticalCenterMultiplier = Math.Round((VerticalCenterSlider.Value / 100),2);
+			VerticalCenterLabel.Content = "Vertical: " + verticalCenterMultiplier;
+        }
+    }
 }

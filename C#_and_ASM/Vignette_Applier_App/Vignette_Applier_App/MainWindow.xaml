@@ -16,12 +16,19 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="text1" Content="wynik"
-HorizontalAlignment="Center" VerticalAlignment="Center" Margin="188,61,150,66" Width="302" Height="32" RenderTransformOrigin="0.881,4.762" Grid.Column="1" Grid.Row="1"/>
-        <Button x:Name="PictureButton" Content="Picture" HorizontalAlignment="Left" VerticalAlignment="Top" Width="226" Height="53" Click="Picture_Button_Click" Margin="376,23,0,0" Grid.Row="1"/>
+        <Label x:Name="TimeLabel" Content="Time: " Margin="445,95,120,34" Width="75" Height="30" RenderTransformOrigin="0.881,4.762" Grid.Row="1"/>
+        <Label x:Name="VignettePowerLabel" Content="Power: " Margin="445,25,120,104" Grid.Row="1" Height="30" Width="75"/>
+        <Label x:Name="ThreadsLabel" Content="Threads: " Margin="445,60,120,69" Grid.Row="1" Height="30" Width="75" RenderTransformOrigin="0.507,0.8"/>
+        <Label x:Name="HorizontalCenterLabel" Content="Horizontal: 0.5" Grid.Column="1" Margin="484,20,36,109" Grid.Row="1"/>
+        <Label x:Name="VerticalCenterLabel" Content="Vertical: 0.5" Grid.Column="1" Margin="484,60,36,69" Grid.Row="1"/>
+        <Button x:Name="RunButton" Content="Run" Click="Run_Button_Click" Margin="295,100,245,19" Grid.Row="1"/>
         <Image x:Name="ImageInput" Height="360" Width="640" RenderTransformOrigin="0.455,0.483" Grid.Column="0" Grid.Row="0"/>
         <Image x:Name="ImageOutput" Height="360" Width="640" RenderTransformOrigin="0.455,0.483" Grid.Column="1" Grid.Row="0"/>
-        <Slider x:Name="ThreadsSlider" Margin="10,61,332,78" Width="298" Maximum="128" Minimum="1" SmallChange="1" Value="64" Cursor="Arrow" RenderTransformOrigin="0.503,0.5" ValueChanged="ThreadsSlider_ValueChanged" Grid.Row="1"/>
-        <Slider x:Name="VignettePowerSlider" Margin="10,23,332,115" Width="298" RenderTransformOrigin="0.577,1.354" Maximum="16" SmallChange="1" Value="8" Grid.Row="1" ValueChanged="VignettePowerSlider_ValueChanged"/>
+        <Slider x:Name="ThreadsSlider" Margin="120,65,220,74" Maximum="128" Minimum="1" SmallChange="1" Value="64" Cursor="Arrow" RenderTransformOrigin="0.503,0.5" ValueChanged="ThreadsSlider_ValueChanged" Grid.Row="1"/>
+        <Slider x:Name="VignettePowerSlider" Margin="120,30,220,109" RenderTransformOrigin="0.577,1.354" Maximum="16" SmallChange="1" Value="8" Grid.Row="1" ValueChanged="VignettePowerSlider_ValueChanged"/>
+        <RadioButton x:Name="AsmRadioButton" GroupName="dll"  Content="asm" HorizontalAlignment="Left" Margin="175,100,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50" Checked="AsmRadioButton_Checked" IsChecked="True"/>
+        <RadioButton x:Name="CppRadioButton" GroupName="dll"  Content="c++" Margin="175,120,410,24" Grid.Row="1" Checked="CppRadioButton_Checked"/>
+        <Slider x:Name="HorizontalCenterSlider" Grid.Column="1" Margin="69,25,171,114" Grid.Row="1" Maximum="100" Value="50" ValueChanged="HorizontalCenterSlider_ValueChanged"/>
+        <Slider x:Name="VerticalCenterSlider" Grid.Column="1" Margin="69,65,171,74" Grid.Row="1" Maximum="100" Value="50" ValueChanged="VerticalCenterSlider_ValueChanged"/>
     </Grid>
 </Window>

@@ -9,18 +9,6 @@ using System.Threading.Tasks;
 
 namespace Vignette_Applier_App {
 	class VignetteApplier {
-		[DllImport("../../../../x64/Debug/ASMdll.dll")]
-		//[DllImport("../../../../x64/Debug/CPPdll.dll")]
-		public static extern double calculateDistance(double first_point_x, double first_point_y, double second_point_x, double second_point_y);
-
-		//[DllImport("../../../../x64/Debug/ASMdll.dll")]
-		//[DllImport("../../../../x64/Debug/CPPdll.dll")]
-		//private static extern double getMaxDistFromCenter(double size_x, double size_y, double center_x, double center_y);
-
-		[DllImport("../../../../x64/Debug/ASMdll.dll")]
-		//[DllImport("../../../../x64/Debug/CPPdll.dll")]
-		public static extern double calculateMaskValue(double maskCenterX, double maskCenterY, double col, double row, double stdMultiplier, int maskPower);
-
 		private class TaskParams
         {
 			public double maskCenterX;
@@ -43,32 +31,58 @@ namespace Vignette_Applier_App {
 			double maxDist = 0;
 			for (int i = 0; i < 4; ++i)
 			{
-				double dist = calculateDistance(centerX, centerY, corners[i].Item1, corners[i].Item2);
+				double dist = Math.Sqrt(Math.Pow((centerX- corners[i].Item1),2)+Math.Pow((centerY-corners[i].Item2),2));
 				if (maxDist < dist)
 					maxDist = dist;
 			}
 			return maxDist;
 		}
 
+		[DllImport(@"../../../../x64/Debug/ASMdll.dll")]
+		public static extern double calculateMaskValueAsm(double maskCenterX, double maskCenterY, double col, double row, double stdMultiplier, int maskPower);
+		[DllImport(@"../../../../x64/Debug/CPPdll.dll")]
+		public static extern double calculateMaskValueCpp(double maskCenterX, double maskCenterY, double col, double row, double stdMultiplier, int maskPower);
 
-		public static Tuple<Bitmap, double> ApplyVignette(Bitmap inputImage, double maskCenterX, double maskCenterY, int maskPower, int threads)
+		public static Tuple<Bitmap, double> ApplyVignette(Bitmap inputImage, double maskCenterX, double maskCenterY, int maskPower, int threads, int dllParam)
 		{
 			var countdownEvent = new CountdownEvent(inputImage.Height * inputImage.Width);
 			double maxDistFromCenter = VignetteApplier.getMaxDistFromCenter(inputImage.Width, inputImage.Height, maskCenterX, maskCenterY);
-			Action<Object> threadFunctionWrapper = threadParams =>
-			{
-				TaskParams castedParams = (TaskParams)threadParams;
-				int temp = castedParams.col* castedParams.imageHeight+ castedParams.row;
-				castedParams.mask[temp] = calculateMaskValue(castedParams.maskCenterX,
-													castedParams.maskCenterY,
-													castedParams.col,
-													castedParams.row,
-													castedParams.stdMultiplier,
-													castedParams.maskPower
-													);
-				countdownEvent.Signal();
-			};
-			Bitmap outputImage = new Bitmap(inputImage);
+			Action<Object> threadFunctionWrapper = null;
+            if (dllParam == 0)
+            {
+
+				threadFunctionWrapper = threadParams =>
+				{
+					TaskParams castedParams = (TaskParams)threadParams;
+					int temp = castedParams.col * castedParams.imageHeight + castedParams.row;
+					castedParams.mask[temp] = calculateMaskValueAsm(castedParams.maskCenterX,
+														castedParams.maskCenterY,
+														castedParams.col,
+														castedParams.row,
+														castedParams.stdMultiplier,
+														castedParams.maskPower
+														);
+					countdownEvent.Signal();
+				};
+			}
+            else if(dllParam == 1)
+            {
+
+                threadFunctionWrapper = threadParams =>
+                {
+                    TaskParams castedParams = (TaskParams)threadParams;
+                    int temp = castedParams.col * castedParams.imageHeight + castedParams.row;
+                    castedParams.mask[temp] = calculateMaskValueCpp(castedParams.maskCenterX,
+                                                        castedParams.maskCenterY,
+                                                        castedParams.col,
+                                                        castedParams.row,
+                                                        castedParams.stdMultiplier,
+                                                        castedParams.maskPower
+                                                        );
+                    countdownEvent.Signal();
+                };
+            }
+            Bitmap outputImage = new Bitmap(inputImage);
 			double[] mask = new double[inputImage.Width * inputImage.Height];
 			ThreadPool.SetMinThreads(threads, threads);
 			ThreadPool.SetMaxThreads(threads, threads);
