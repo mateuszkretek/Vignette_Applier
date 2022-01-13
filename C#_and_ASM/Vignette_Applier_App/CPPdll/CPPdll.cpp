@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "CPPdll.h"
 #include <math.h>
 
@@ -10,9 +10,10 @@ double calculateDistance(double first_point_x, double first_point_y, double seco
 double calculateMaskValueCpp(double maskCenterX, double maskCenterY, double col, double row, double stdMultiplier, int maskPower)
 {
 	double temp;
-	temp = calculateDistance(maskCenterX, maskCenterY, col, row);    //generowanie winiety
-	temp *= stdMultiplier;
-	temp = cos(temp);
-	temp = pow(temp, maskPower);
+	temp = calculateDistance(maskCenterX, maskCenterY, col, row);   //obliczanie odległości danego punktu od centrum winiety
+	temp *= stdMultiplier;											//zmiana wartości na należącą do przedziału <0,Pi/2>
+	temp = cos(temp);												//obliczenie cosinusa (wlaściwe generowanie winiety)
+	temp = pow(temp, maskPower);									//ustawienie mocy winiety
 	return temp;
 }
+

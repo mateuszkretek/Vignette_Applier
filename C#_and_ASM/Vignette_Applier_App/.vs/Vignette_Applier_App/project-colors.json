@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "7e79cf8a-d100-42da-9801-7cc0a7db9946": {
+      "ProjectGuid": "7e79cf8a-d100-42da-9801-7cc0a7db9946",
+      "DisplayName": "Vignette_Applier_App",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

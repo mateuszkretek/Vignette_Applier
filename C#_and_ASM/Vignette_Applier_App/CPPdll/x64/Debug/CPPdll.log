@@ -1,1 +1,6 @@
-﻿  CPPdll.vcxproj -> E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\x64\Debug\CPPdll.dll
+﻿  pch.cpp
+  CPPdll.cpp
+  dllmain.cpp
+  Generating Code...
+     Creating library E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\x64\Debug\CPPdll.lib and object E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\x64\Debug\CPPdll.exp
+  CPPdll.vcxproj -> E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\x64\Debug\CPPdll.dll

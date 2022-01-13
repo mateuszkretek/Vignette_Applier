@@ -24,8 +24,8 @@
         <Button x:Name="RunButton" Content="Run" Click="Run_Button_Click" Margin="295,100,245,19" Grid.Row="1"/>
         <Image x:Name="ImageInput" Height="360" Width="640" RenderTransformOrigin="0.455,0.483" Grid.Column="0" Grid.Row="0"/>
         <Image x:Name="ImageOutput" Height="360" Width="640" RenderTransformOrigin="0.455,0.483" Grid.Column="1" Grid.Row="0"/>
-        <Slider x:Name="ThreadsSlider" Margin="120,65,220,74" Maximum="128" Minimum="1" SmallChange="1" Value="64" Cursor="Arrow" RenderTransformOrigin="0.503,0.5" ValueChanged="ThreadsSlider_ValueChanged" Grid.Row="1"/>
-        <Slider x:Name="VignettePowerSlider" Margin="120,30,220,109" RenderTransformOrigin="0.577,1.354" Maximum="16" SmallChange="1" Value="8" Grid.Row="1" ValueChanged="VignettePowerSlider_ValueChanged"/>
+        <Slider x:Name="ThreadsSlider" Margin="120,65,220,74" Maximum="128" Minimum="1" SmallChange="1" Value="12" Cursor="Arrow" RenderTransformOrigin="0.503,0.5" ValueChanged="ThreadsSlider_ValueChanged" Grid.Row="1"/>
+        <Slider x:Name="VignettePowerSlider" Margin="120,30,220,109" RenderTransformOrigin="0.577,1.354" Maximum="16" SmallChange="1" Value="2" Grid.Row="1" ValueChanged="VignettePowerSlider_ValueChanged" Minimum="1"/>
         <RadioButton x:Name="AsmRadioButton" GroupName="dll"  Content="asm" HorizontalAlignment="Left" Margin="175,100,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50" Checked="AsmRadioButton_Checked" IsChecked="True"/>
         <RadioButton x:Name="CppRadioButton" GroupName="dll"  Content="c++" Margin="175,120,410,24" Grid.Row="1" Checked="CppRadioButton_Checked"/>
         <Slider x:Name="HorizontalCenterSlider" Grid.Column="1" Margin="69,25,171,114" Grid.Row="1" Maximum="100" Value="50" ValueChanged="HorizontalCenterSlider_ValueChanged"/>

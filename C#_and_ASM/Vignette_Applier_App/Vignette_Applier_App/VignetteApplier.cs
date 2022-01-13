@@ -50,7 +50,6 @@ namespace Vignette_Applier_App {
 			Action<Object> threadFunctionWrapper = null;
             if (dllParam == 0)
             {
-
 				threadFunctionWrapper = threadParams =>
 				{
 					TaskParams castedParams = (TaskParams)threadParams;
@@ -67,7 +66,6 @@ namespace Vignette_Applier_App {
 			}
             else if(dllParam == 1)
             {
-
                 threadFunctionWrapper = threadParams =>
                 {
                     TaskParams castedParams = (TaskParams)threadParams;

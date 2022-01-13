@@ -28,3 +28,4 @@ E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_A
 E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\Vignette_Applier_App.Properties.Resources.resources
 E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\Vignette_Applier_App.csproj.GenerateResource.cache
 E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\Vignette_Applier_App.csproj.CoreCompileInputs.cache
+E:\Projects\Projects\Vignette_Applier\C#_and_ASM\Vignette_Applier_App\Vignette_Applier_App\obj\x64\Debug\Vignette_Applier_App.csproj.SuggestedBindingRedirects.cache

@@ -23,16 +23,16 @@ namespace Vignette_Applier_App
 	public partial class MainWindow : Window
 	{
 		Bitmap inputImage;
-		int dllParam = 0;
-		double horizontalCenterMultiplier = 0.5;
-		double verticalCenterMultiplier = 0.5;
+		int dllParam;
+		double horizontalCenterMultiplier;
+		double verticalCenterMultiplier;
 		int threads;
 		int power;
 
 		public MainWindow()
 		{
 			InitializeComponent();
-			inputImage = new Bitmap("E:/Projects/Projects/Vignette_Applier/C#_and_ASM/Vignette_Applier_App/images/turtle.jpg");
+			inputImage = new Bitmap(@"../../../../images/turtle.jpg");
 			BitmapImage inputBitmapImage = new BitmapImage();
 			using (MemoryStream memory = new MemoryStream())
 			{
@@ -60,7 +60,7 @@ namespace Vignette_Applier_App
 				outputBitmapImage.EndInit();
 			}
 			ImageOutput.Source = outputBitmapImage;
-			TimeLabel.Content = "Time: " + result.Item2;
+			TimeLabel.Content = "Time: " + result.Item2 + " ms";
 		}
 
 		private void ThreadsSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
