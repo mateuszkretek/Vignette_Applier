@@ -26,7 +26,7 @@ namespace Vignette_Applier_App
 		int dllParam;
 		double horizontalCenterMultiplier;
 		double verticalCenterMultiplier;
-		int threads;
+		int threads = Environment.ProcessorCount;
 		int power;
 
 		public MainWindow()
@@ -45,6 +45,7 @@ namespace Vignette_Applier_App
 			}
 			ImageInput.Source = null;
 			ImageInput.Source = inputBitmapImage;
+			ThreadsSlider.Value = threads;
 		}
 		private void Run_Button_Click(object sender, RoutedEventArgs e)
 		{

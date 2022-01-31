@@ -5,7 +5,12 @@
       "ProjectGuid": "7e79cf8a-d100-42da-9801-7cc0a7db9946",
       "DisplayName": "Vignette_Applier_App",
       "ColorIndex": 0
+    },
+    "3c207007-a8fc-4e25-999a-4cb496b25696": {
+      "ProjectGuid": "3c207007-a8fc-4e25-999a-4cb496b25696",
+      "DisplayName": "ASMdll",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }
